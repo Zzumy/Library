@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Book;
 
 return new class extends Migration
 {
@@ -18,6 +19,17 @@ return new class extends Migration
             $table->integer('pieces')->default(50);
             $table->timestamps();
         });
+        
+        Book::create([
+            'author' => 'LucasArts',
+            'title' => 'Star Wars',
+        ]);
+        
+        Book::create([
+            'author' => 'DC comics',
+            'title' => 'Batman',
+            'pieces' => '4',
+        ]);
     }
 
     /**
