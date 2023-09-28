@@ -1,9 +1,9 @@
 <?php
 
+use App\Models\Book;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Book;
 
 return new class extends Migration
 {
@@ -15,20 +15,21 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id('book_id');
             $table->string('author', 32);
-            $table->string('title', 150);
-            $table->integer('pieces')->default(50);
+            $table->string('title', 128);
+            $table->integer('pieces')->default(64);
             $table->timestamps();
         });
-        
+
         Book::create([
-            'author' => 'LucasArts',
-            'title' => 'Star Wars',
+            'book_id' => 1,
+            'author' => 'Agyalá Gyula',
+            'title' => 'C for dummies',
         ]);
-        
+
         Book::create([
-            'author' => 'DC comics',
-            'title' => 'Batman',
-            'pieces' => '4',
+            'book_id' => 2,
+            'author' => 'Lapos Elemér',
+            'title' => 'Kamasutra',
         ]);
     }
 

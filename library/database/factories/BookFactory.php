@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\copy>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
  */
-class CopyFactory extends Factory
+class BookFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +18,9 @@ class CopyFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => rand(1, 10),
-            'book_id' => rand(1, 10)
+            'author' => fake()->name(),
+            'title' => $this->faker->sentence(),
+            'pieces' => rand(1, 40),
         ];
     }
 }
